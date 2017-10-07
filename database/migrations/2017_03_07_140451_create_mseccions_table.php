@@ -16,10 +16,8 @@ class CreateMseccionsTable extends Migration
         Schema::create('mseccions', function (Blueprint $table) {
             $table->string('cod_sec', 6)->unique();
             $table->primary('cod_sec');
-            $table->string('turno', 10);
-
-            $table->string('cod_pen_sec')->unique();
-            $table->foreign('cod_pen_sec')->references('cod_pen')->on('mpensums')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('turno', 8);
+            $table->string('trayecto', 1);
 
             $table->timestamps();
         });

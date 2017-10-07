@@ -15,12 +15,11 @@ class CreateMrolUsusTable extends Migration
     {
         Schema::create('mrol_usus', function (Blueprint $table) {
             $table->increments('id_rol_usu');
+            $table->integer('id_tru');
+            $table->integer('id_rol_tru');
 
-            $table->string('ci_usu_tru', 9)->unique();
-            $table->foreign('ci_usu_tru')->references('ci_usu')->on('musuarios')->onDelete('cascade')->onUpdate('cascade');
-
-            $table->string('id_rol_tru')->unique();
-            $table->foreign('id_rol_tru')->references('id_rol')->on('mrols')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_tru')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_rol_tru')->references('id_rol')->on('mrols')->onDelete('cascade');
 
             $table->timestamps();
         });

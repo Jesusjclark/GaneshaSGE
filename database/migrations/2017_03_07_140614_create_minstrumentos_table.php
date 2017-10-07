@@ -14,9 +14,9 @@ class CreateMinstrumentosTable extends Migration
     public function up()
     {
         Schema::create('minstrumentos', function (Blueprint $table) {
-            $table->string('id_inst');
-            $table->primary('id_inst');
-            $table->string('tip_inst', 15);
+            $table->increments('id_inst');
+            $table->string('tip_inst', 35);
+            $table->text('descp_inst');
             $table->timestamps();
         });
     }

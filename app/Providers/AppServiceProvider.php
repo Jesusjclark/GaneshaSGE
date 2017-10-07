@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace GaneshaSIGE\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

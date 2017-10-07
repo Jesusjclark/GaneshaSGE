@@ -16,9 +16,10 @@ class CreateMestudiantesTable extends Migration
         Schema::create('mestudiantes', function (Blueprint $table) {
             $table->string('ci_est', 9)->unique();
             $table->primary('ci_est');
-            $table->string('nom_est', 15);
-            $table->string('ape_est', 15);
+            $table->string('nom_est', 30);
+            $table->string('ape_est', 30);
             $table->string('cod_pnf_est', 6);
+            $table->string('email', 36);
 
             $table->timestamps();
         });

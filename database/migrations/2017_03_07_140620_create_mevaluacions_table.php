@@ -14,22 +14,25 @@ class CreateMevaluacionsTable extends Migration
     public function up()
     {
         Schema::create('mevaluacions', function (Blueprint $table) {
-            $table->string('id_eva');
-            $table->primary('id_eva');
-            $table->string('id_plan_eva')->unique();
-            $table->string('id_inst_eva')->unique();
-            $table->string('criterio', 15);
-            $table->text('observacion');
+            $table->increments('id_eva');
+            $table->integer('unidad');
+            $table->integer('id_plan_eva');
+            $table->integer('id_inst_eva');
+            $table->text('criterio');
+            $table->string('tecnica', 25);
+            $table->text('observacion')->nullable();
             $table->date('fec_prop');
-            $table->date('fec_res');
-            $table->date('fec_part');
+            $table->date('fec_res')->nullable();
+            $table->string('participacion', 3)->nullable();
+            $table->float('ponderacion', 2, 2);
+            $table->date('fec_part')->nullable();
             $table->string('corte');
             $table->text('contenido');
 
 
-            $table->foreign('id_plan_eva')->references('id_plan')->on('mplan_evas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_plan_eva')->references('id_plan')->on('mplan_evas')->onDelete('cascade');
 
-            $table->foreign('id_inst_eva')->references('id_inst')->on('minstrumentos')->onDelete('cascade')->onUpdate('cascade');       
+            $table->foreign('id_inst_eva')->references('id_inst')->on('minstrumentos')->onDelete('cascade');       
 
             $table->timestamps();
         });

@@ -14,21 +14,20 @@ class CreateMuniCrrsTable extends Migration
     public function up()
     {
         Schema::create('muni_crrs', function (Blueprint $table) {
-            $table->string('cod_uc_pnf', 6 )->unique();
+            $table->string('cod_uc_pnf', 9 )->unique();
             $table->primary('cod_uc_pnf');
-
-            $table->string('cod_uc_nac', 6);
+            $table->string('cod_uc_nac', 9);
             $table->integer('creditos');
-            $table->string('nom_uc', 20);
-            $table->string('trayecto', 4);
+            $table->string('nom_uc', 30);
+            $table->string('trayecto', 1);
             $table->float('hta');
             $table->float('htt');
             $table->float('hte');
             $table->boolean('periodo');
 
-            $table->string('cod_pen_uc')->unsigned();
+            $table->integer('cod_pen_uc')->unsigned();
 
-            $table->foreign('cod_pen_uc')->references('cod_pen')->on('mpensums')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('cod_pen_uc')->references('cod_pen')->on('mpensums')->onDelete('cascade');
             
             $table->timestamps();
         });

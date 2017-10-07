@@ -15,13 +15,9 @@ class CreateMpensumsTable extends Migration
     {
         Schema::create('mpensums', function (Blueprint $table) {
 
-            $table->string('cod_pen')->unique();
-            $table->primary('cod_pen');
-
-            $table->string('cod_pnf_p', 6)->unsigned();
-
-            $table->foreign('cod_pnf_p')->references('cod_pnf')->on('mpnfs')->onDelete('cascade')->onUpdate('cascade');
-            
+            $table->increments('cod_pen');
+            $table->integer('cod_pnf_p')->unsigned();
+            $table->foreign('cod_pnf_p')->references('cod_pnf')->on('mpnfs')->onDelete('cascade');
             $table->timestamps();
         });
     }

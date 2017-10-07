@@ -14,9 +14,9 @@ class CreateMejesTable extends Migration
     public function up()
     {
         Schema::create('mejes', function (Blueprint $table) {
-            $table->string('cod_eje')->unique();
-            $table->primary('cod_eje');
-            $table->string('nom_eje', 15);
+            $table->increments('cod_eje');
+            $table->string('nom_eje', 20);
+            $table->text('descripcion');
             $table->timestamps();
         });
     }

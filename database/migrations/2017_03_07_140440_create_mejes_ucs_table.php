@@ -16,11 +16,11 @@ class CreateMejesUcsTable extends Migration
         Schema::create('mejes_ucs', function (Blueprint $table) {
             $table->increments('cod_uc_ejes')->unique();
 
-            $table->string('cod_uc_pnf_euc', 6)->unsigned();
-            $table->foreign('cod_uc_pnf_euc')->references('cod_uc_pnf')->on('muni_crrs')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('cod_uc_pnf_euc', 9)->unsigned();
+            $table->foreign('cod_uc_pnf_euc')->references('cod_uc_pnf')->on('muni_crrs')->onDelete('cascade');
 
-            $table->string('cod_ejes_euc')->unsigned();
-            $table->foreign('cod_ejes_euc')->references('cod_eje')->on('mejes')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('cod_ejes_euc')->unsigned();
+            $table->foreign('cod_ejes_euc')->references('cod_eje')->on('mejes')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -15,11 +15,12 @@ class CreateMsecEstsTable extends Migration
     {
         Schema::create('msec_ests', function (Blueprint $table) {
             $table->increments('id_sec_est');
-            $table->string('cod_sec_tes', 6)->unique();
-            $table->foreign('cod_sec_tes')->references('cod_sec')->on('mseccions')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('id_master');
+            $table->string('ci_est_tes', 9);
 
-            $table->string('ci_est_tes', 6)->unique();
-            $table->foreign('ci_est_tes')->references('ci_est')->on('mestudiantes')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_master')->references('id_uc_sec')->on('mpuentemasters')->onDelete('cascade');
+            $table->foreign('ci_est_tes')->references('ci_est')->on('mestudiantes')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

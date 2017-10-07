@@ -14,13 +14,13 @@ class CreateMrolModsTable extends Migration
     public function up()
     {
         Schema::create('mrol_mods', function (Blueprint $table) {
-            $table->increments('id_rol_mod');
+            $table->increments('id_rol_mod')->unique();
 
-            $table->string('id_rol_trm')->unique();
-            $table->foreign('id_rol_trm')->references('id_rol')->on('mrols')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('id_rol_trm');
+            $table->foreign('id_rol_trm')->references('id_rol')->on('mrols')->onDelete('cascade');
 
-            $table->string('id_mod_trm')->unique();
-            $table->foreign('id_mod_trm')->references('id_mod')->on('mmodulos')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('id_mod_trm');
+            $table->foreign('id_mod_trm')->references('id_mod')->on('mmodulos')->onDelete('cascade');
 
             $table->timestamps();
         });

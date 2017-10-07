@@ -14,12 +14,11 @@ class CreateMplanEvasTable extends Migration
     public function up()
     {
         Schema::create('mplan_evas', function (Blueprint $table) {
-            $table->string('id_plan');
-            $table->primary('id_plan');
+            $table->increments('id_plan');
             $table->string('status', 10);
-
-            $table->string('cod_sec_plan', 6)->unique();
-            $table->foreign('cod_sec_plan')->references('cod_sec')->on('mseccions')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('cod_sec_plan');
+            
+            $table->foreign('cod_sec_plan')->references('id_uc_sec')->on('mpuentemasters')->onDelete('cascade');
             $table->timestamps();
         });
     }

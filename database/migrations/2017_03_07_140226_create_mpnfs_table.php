@@ -14,8 +14,7 @@ class CreateMpnfsTable extends Migration
     public function up()
     {
         Schema::create('mpnfs', function (Blueprint $table) {
-            $table->string('cod_pnf', 6)->unique();
-            $table->primary('cod_pnf');
+            $table->increments('cod_pnf');
             $table->string('nom_pnf', 30);
             $table->timestamps();
 

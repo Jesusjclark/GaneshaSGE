@@ -43,6 +43,12 @@ return [
 
     'disks' => [
 
+        'img_perfil' => [
+            'driver' => 'local',
+            'root' => public_path('img_perfil'),
+        ],
+        //Creo un disco para poder guardar los archivos que se desea enviar a la base de datos en laravel, con la diferencia que utilizo la funcion ::public_paht:: para poder guardarlos en public
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
@@ -54,6 +60,12 @@ return [
             'visibility' => 'public',
         ],
 
+          'archivos' => [
+            'driver' => 'local',
+            'root' => public_path('archivos'),
+        ],
+
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',
@@ -61,7 +73,7 @@ return [
             'region' => 'your-region',
             'bucket' => 'your-bucket',
         ],
-
+ 
     ],
 
 ];

@@ -14,9 +14,8 @@ class CreateMrolsTable extends Migration
     public function up()
     {
         Schema::create('mrols', function (Blueprint $table) {
-            $table->string('id_rol');
-            $table->primary('id_rol');
-            $table->string('nom_rol', 25);
+            $table->increments('id_rol')->unique();
+            $table->string('nom_rol', 35)->unique();
             $table->timestamps();
         });
     }

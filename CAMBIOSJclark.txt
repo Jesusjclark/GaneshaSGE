@@ -1,0 +1,6 @@
+++++++++++++Validaciones por hacer++++++++++++++++++++
+
+placeholder="Ejp: " size="9" maxlength="8" maxlength="15" placeholder="Usuario" onBlur="revisarLongitud(this,2)" ponerMayusculas(this); confirmacionDeTexto(this); required autofocus
+//para solo lectura
+readonly="readonly"
+javascript
